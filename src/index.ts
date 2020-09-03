@@ -1,26 +1,7 @@
-class Sorter {
-    private collection: number[];
+import { Sorter } from './Sorter';
+import { NumbersCollection } from './NumbersCollection';
 
-    constructor(collection: number[]) {
-        this.collection = collection;
-    }
-    sort(): void {
-        const { length } = this.collection;
-        for (let i = 0; i < length; i++) {
-            for (let j = 0; j < length - i - 1; j++) {
-                if (this.collection[j] > this.collection[j + 1]) {
-                    const temp = this.collection[j];
-                    this.collection[j] = this.collection[j + 1];
-                    this.collection[j + 1] = temp;
-                }
-            }
-        }
-    }
-    public getCollection () {
-        return this.collection;
-    }
-}
-
-const sorting = new Sorter([1, 4, 3, 6]);
+const array = new NumbersCollection([1, 2, 4, 5, 8, 2, 3]);
+const sorting = new Sorter(array);
 sorting.sort();
-console.log(sorting.getCollection());
+console.log(sorting.array);
