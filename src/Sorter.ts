@@ -1,22 +1,23 @@
-import { NumbersCollection } from './NumbersCollection';
+interface ISortable {
+    length: number;
+    compare(left: number, right: number): boolean;
+    swap(left: number, right: number): void;
+}
 
 export class Sorter {
-    private collection: NumbersCollection;
+    private collection: ISortable;
 
-    constructor(collection: NumbersCollection) {
+    constructor(collection: ISortable) {
         this.collection = collection;
     }
     sort(): void {
-        const { lenght } = this.collection;
-        for (let i = 0; i < lenght; i++) {
-            for (let j = 0; j < lenght - i - 1; j++) {
+        const { length } = this.collection;
+        for (let i = 0; i < length; i++) {
+            for (let j = 0; j < length - i - 1; j++) {
                 if (this.collection.compare(j, j + 1)) {
                    this.collection.swap(j, j + 1);
                 }
             }
         }
-    }
-    get array(): number [] {
-        return this.collection.collection;
     }
 }
