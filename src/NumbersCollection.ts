@@ -1,13 +1,10 @@
 export class NumbersCollection {
     private data: number[];
-
+    
     constructor (data: number[]) {
         this.data = data;
     }
-    get collection(): number[] {
-        return this.data;
-    }
-    get lenght(): number {
+    get length(): number {
         return this.data.length;
     }
     compare(leftIndex: number, rightIndex: number): boolean {
