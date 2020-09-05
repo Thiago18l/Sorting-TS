@@ -1,3 +1,4 @@
+import { Sorter } from "./Sorter";
 class Node {
     value: number;
     next: Node | null = null;
@@ -6,7 +7,7 @@ class Node {
     }
 }
 
-export class LinkedList {
+export class LinkedList extends Sorter {
     private head: Node | null = null;
     add(data: number): void {
         const node = new Node(data);
